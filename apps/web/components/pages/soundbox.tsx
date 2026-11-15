@@ -225,7 +225,7 @@ export default function Soundbox() {
       ]);
       if (reply.error) setError(reply.error);
       if (autoVoice) await speak(reply.response);
-      await client.invalidateQueries();
+      void client.invalidateQueries();
     } catch (e) {
       setError((e as Error).message);
     } finally {
@@ -264,7 +264,7 @@ export default function Soundbox() {
           ? "The approved action has been executed."
           : "Proposal declined. No action was executed.");
       setMessages((old) => [...old, { role: "assistant", text }]);
-      await client.invalidateQueries();
+      void client.invalidateQueries();
       notify(
         approved
           ? "Approved action executed and recorded."
@@ -527,7 +527,7 @@ export default function Soundbox() {
                   value={language}
                   onChange={(e) => setLanguage(e.target.value)}
                   aria-label="Assistant language"
-                  disabled={recording}
+                  disabled={recording || busy === "restore"}
                 >
                   <option value="hi-IN">हिन्दी</option>
                   <option value="mr-IN">मराठी</option>
