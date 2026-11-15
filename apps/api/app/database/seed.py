@@ -2,6 +2,7 @@
 from datetime import datetime,timezone,timedelta
 import csv
 import random
+import os
 from pathlib import Path
 from sqlalchemy import select,func
 from app.database.session import Base,engine,SessionLocal
@@ -53,11 +54,12 @@ def seed_demo(db, reset=False):
     emit(db,'system.ready','Pehchaan is ready','Synthetic merchant workspace initialized. Payment provider is simulated.',agent='system')
     db.flush()
     # Portable sample transaction CSV for manual import demonstrations.
-    sample=Path(__file__).resolve().parents[4]/'data'/'sample-transactions.csv'
-    sample.parent.mkdir(exist_ok=True)
-    with sample.open('w',newline='') as file:
-        writer=csv.writer(file);writer.writerow(['customer_token','amount','category','created_at'])
-        for tx in transactions[:30]: writer.writerow([tx.customer_token,tx.amount,tx.category,tx.created_at.isoformat()])
+    if not os.environ.get('VERCEL'):
+        sample=Path(__file__).resolve().parents[4]/'data'/'sample-transactions.csv'
+        sample.parent.mkdir(exist_ok=True)
+        with sample.open('w',newline='') as file:
+            writer=csv.writer(file);writer.writerow(['customer_token','amount','category','created_at'])
+            for tx in transactions[:30]: writer.writerow([tx.customer_token,tx.amount,tx.category,tx.created_at.isoformat()])
     return {'status':'reset' if reset else 'seeded','customers':100,'transactions':db.scalar(select(func.count(Transaction.id)))}
 
 if __name__=='__main__':
