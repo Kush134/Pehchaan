@@ -1,0 +1,19 @@
+"use client";
+import Link from "next/link";
+import {useState} from "react";
+import {useQuery,useQueryClient} from "@tanstack/react-query";
+import {MessageSquare,ArrowRight,CheckCircle2} from "lucide-react";
+import {api,post} from "@/lib/api";
+import {Panel,Badge} from "../shared";
+import {Button} from "../ui/button";
+import "./telephony.css";
+export type SmsOffer={id:string;campaign_id:string;customer_name:string;masked_phone:string;status:string;message:string;simulated:boolean;accepted:boolean;redeemed:boolean;error:string|null;offer_amount:number;minimum_bill:number};
+type Status={configured:boolean;missing:string[];notice:string;customer_name:string;masked_phone:string};
+export default function SmsPanel({campaignId,compact=false}:{campaignId?:string;compact?:boolean}){
+ const client=useQueryClient();const [busy,setBusy]=useState(false);const [error,setError]=useState("");
+ const status=useQuery({queryKey:["sms-status"],queryFn:()=>api<Status>("/sms/status"),refetchInterval:30000});
+ const messages=useQuery({queryKey:["sms-notifications"],queryFn:()=>api<{items:SmsOffer[]}>("/sms/notifications"),refetchInterval:5000});
+ async function send(simulate:boolean){setBusy(true);setError("");try{if(campaignId&&!simulate)await post(`/campaigns/${campaignId}/notify`);else await post("/sms/demo-offer",{simulate});await client.invalidateQueries();}catch(e){setError((e as Error).message);}finally{setBusy(false);}}
+ async function accept(id:string){setBusy(true);setError("");try{await post(`/sms/notifications/${id}/simulate-accept`);await client.invalidateQueries();}catch(e){setError((e as Error).message);}finally{setBusy(false);}}
+ return <Panel title="Offer notifications by SMS" subtitle="Send a reason to visit. Track delivery and acceptance." action={<Badge tone={status.data?.configured?"green":"amber"}>{status.data?.configured?"SMS READY":"SMS SETUP"}</Badge>} className="telephony-panel"><div className="telephony-body"><div className="telephony-invitation"><span className="telephony-phone-icon"><MessageSquare size={22}/></span><div><strong>{status.data?.customer_name||"Kush"} · {status.data?.masked_phone}</strong><p>Hi Kush! Get Rs 20 off on a bill of Rs 200 or more. Visit Sharma Kirana Store now and grab the offer.</p></div></div><div className="telephony-actions"><Button disabled={busy||!status.data?.configured} onClick={()=>void send(false)}><MessageSquare size={15}/>{busy?"Working…":"Send offer SMS"}</Button><Button variant="secondary" disabled={busy} onClick={()=>void send(true)}>Preview SMS locally</Button></div>{status.data&&!status.data.configured&&<p className="telephony-call-error">{status.data.notice}<br/>{status.data.missing.join(" · ")}</p>}{(error||status.error||messages.error)&&<p role="alert" className="telephony-error">{error||status.error?.message||messages.error?.message}</p>}<div className="telephony-call-list" aria-live="polite">{messages.data?.items.slice(0,compact?2:5).map(m=><article className="telephony-call" key={m.id} data-sms-id={m.id}><div className="telephony-call-heading"><strong>{m.customer_name} · Rs {m.offer_amount} off Rs {m.minimum_bill}</strong><Badge tone={m.accepted?"green":m.status==="failed"||m.status==="blocked"?"amber":"default"}>{m.redeemed?"Offer redeemed":m.accepted?"Offer accepted":m.status.replaceAll("_"," ")}</Badge></div><p className="sms-message">{m.message.split(" Accept:")[0]}</p><small>{m.simulated?"Local preview · no SMS sent":"Twilio SMS"}</small>{m.error&&<p className="telephony-call-error">{m.error}</p>}{m.simulated&&!m.accepted&&<Button size="sm" variant="secondary" disabled={busy} onClick={()=>void accept(m.id)}>Simulate customer acceptance</Button>}{m.accepted&&!m.redeemed&&<Link className="text-link" href="/ledger#checkout"><CheckCircle2 size={14}/>Offer saved · try checkout<ArrowRight size={13}/></Link>}</article>)}</div></div></Panel>;
+}

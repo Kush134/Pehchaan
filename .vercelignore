@@ -1,0 +1,11 @@
+artifacts
+tmp
+.taste-skill
+assets/video
+apps/api/.venv
+apps/web/.next
+apps/web/test-results
+apps/web/playwright-report
+.env*
+**/__pycache__
+**/.pytest_cache

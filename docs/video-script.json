@@ -1,0 +1,142 @@
+[
+  {
+    "id": "intro",
+    "title": "Pehchaan",
+    "eyebrow": "TRACK 1 · MERCHANT GROWTH AI",
+    "narration": "Meet Pehchaan: an AI business partner for Paytm merchants. Paytm helps a merchant receive a payment. Pehchaan helps earn the next one, turning transaction patterns into retention campaigns, better bulk-order decisions, and useful actions in the merchant's own language.",
+    "caption": "An AI business partner for merchants\nTurn payment patterns into the next business opportunity."
+  },
+  {
+    "id": "problem",
+    "title": "Payments tell only part of the story",
+    "eyebrow": "THE MERCHANT PROBLEM",
+    "narration": "A shopkeeper knows today's sales, but may not notice which regular customers are disappearing. Choosing an offer, comparing bulk quotes, and checking discount profitability take time. Small merchants need a business copilot that understands their shop and keeps them in control.",
+    "caption": "Who stopped returning? Which offer protects profit?\nMerchants need decisions they can act on."
+  },
+  {
+    "id": "solution",
+    "title": "Recognize. Recommend. Review. Act.",
+    "eyebrow": "THE PEHCHAAN SOLUTION",
+    "narration": "Pehchaan connects customer intelligence, a Comeback Engine, a multi-agent Haggle Arena, and a Mandate Firewall. The assistant prepares actions that the merchant reviews before execution. This walkthrough uses synthetic customer records and simulated payments; its Sarvam language, speech, and document integrations are real.",
+    "caption": "Intelligence + action + merchant approval\nSynthetic records and simulated payments are labelled throughout."
+  },
+  {
+    "id": "overview",
+    "title": "One view of merchant growth",
+    "eyebrow": "OVERVIEW",
+    "narration": "The overview opens Sharma Kirana Store in Wakad, Pune. Revenue, returning customers, basket value, and customer risk come from the stored ledger. Change the date range to inspect performance. A recommended action and live activity feed connect insights to the workflows behind them.",
+    "caption": "Dashboard metrics come from stored transactions\nChange the date range and inspect the next recommended action."
+  },
+  {
+    "id": "customers",
+    "title": "Understand the returning customer",
+    "eyebrow": "CUSTOMER INTELLIGENCE",
+    "narration": "Customer Intelligence groups pseudonymous profiles using recency, frequency, spending, and personal visit cadence. Open a customer to inspect purchase history and spending change. New customers are protected from being misclassified as lost regulars. These records describe this store's activity, not purchases at competing businesses.",
+    "caption": "RFM + personalized visit cadence + spend change\nCustomer tokens protect identity; purchase history explains the signal."
+  },
+  {
+    "id": "comeback",
+    "title": "Make a reason to return",
+    "eyebrow": "COMEBACK ENGINE",
+    "narration": "The merchant prepares a welcome-back campaign for at-risk and declining customers: fifteen rupees off a minimum bill of two hundred and fifty. Budget, audience, dates, and language are editable. Deterministic calculations check the offer against contribution-margin rules before it can launch.",
+    "caption": "Create an eligible offer: ₹15 off a ₹250 minimum bill\nBudget and margin constraints are checked before launch."
+  },
+  {
+    "id": "experiment",
+    "title": "Measure the comeback",
+    "eyebrow": "A/B EXPERIMENTS",
+    "narration": "After approval, the campaign allocates reproducible A and B variants alongside a control group. Simulated redemptions write demonstration purchases into the ledger. Compare conversion and discount expense. Incremental profit stays labelled preliminary until enough observations and statistical evidence support a measured claim.",
+    "caption": "A/B offers + a control group + recorded outcomes\nPreliminary estimates are separated from supported measured impact."
+  },
+  {
+    "id": "soundbox",
+    "title": "Speak the language of your shop",
+    "eyebrow": "HINDI · MARATHI · ENGLISH",
+    "narration": "In the Soundbox Simulator, the merchant speaks Hindi or Marathi. Sarvam transcribes the recording and interprets a structured proposal. The merchant reviews and approves the action, then receives a spoken response. Saved conversations restore pending proposals, and text input supports merchants without a microphone.",
+    "caption": "Record → transcribe → interpret → review → approve\nA virtual Soundbox with real Sarvam speech and saved conversations."
+  },
+  {
+    "id": "haggle_request",
+    "title": "From a request to a reviewed basket",
+    "eyebrow": "HAGGLE ARENA · BUYER INTAKE",
+    "narration": "A buyer describes an office grocery order in natural language. Parse Request extracts the basket, budget, and delivery requirement for review. A photographed kirana parchi can also assist entry. The user corrects items before starting; extraction never automatically places an order or authorizes payment.",
+    "caption": "Natural-language request or uploaded parchi\nReview the extracted basket, budget, and delivery requirement first."
+  },
+  {
+    "id": "haggle_rounds",
+    "title": "One buyer. Three seller agents.",
+    "eyebrow": "FOUR-ROUND NEGOTIATION",
+    "narration": "With a forty-thousand-rupee budget, the Buyer Agent requests offers from three seller agents. LangGraph coordinates four rounds of quotes, evaluation, and counteroffers. Sarvam contributes explanations while Python calculates prices. The optimizer selects an eligible bundle within stock, delivery, budget, and merchant-policy constraints.",
+    "caption": "Three sellers negotiate through four real workflow rounds\nThe best eligible bundle must satisfy every constraint."
+  },
+  {
+    "id": "agents",
+    "title": "See the system at work",
+    "eyebrow": "AGENT COMMAND CENTER",
+    "narration": "The Command Center visualizes the same execution events. Follow the buyer, sellers, supervisor, firewall, analytics, and payment simulator. Nodes expose status, recent actions, duration, and recorded tool activity. The timeline displays execution summaries and structured decisions, without presenting private model reasoning as a feature.",
+    "caption": "Real execution events power the agent network\nInspect actions, timing, status, and the persistent audit trail."
+  },
+  {
+    "id": "firewall",
+    "title": "Your mandate is the final word",
+    "eyebrow": "DETERMINISTIC SECURITY",
+    "narration": "Submit a rogue ninety-five-thousand-rupee proposal against the forty-thousand-rupee budget. The Mandate Firewall blocks it through deterministic checks. It also enforces stock, delivery, pricing mandates, expiry, and approvals. Signed requests and replay protection support an auditable workflow. Confidential seller pricing floors remain on the server.",
+    "caption": "₹95,000 proposal against a ₹40,000 mandate: BLOCKED\nPython enforces the rules; the language model cannot bypass them."
+  },
+  {
+    "id": "order",
+    "title": "The deal still needs a human decision",
+    "eyebrow": "EXPLICIT APPROVALS",
+    "narration": "Inspect the best eligible deal: selected products, prices, delivery cost, and remaining budget. Two separate confirmations are required: merchant approval and buyer confirmation. Only then does the application create the order and record simulated authorization. An agent's recommendation alone cannot complete this step.",
+    "caption": "Review the selected deal and confirm both approvals\nNo order is created by an agent recommendation alone."
+  },
+  {
+    "id": "ledger",
+    "title": "A traceable fulfilment lifecycle",
+    "eyebrow": "ORDER & PAYMENT LEDGER",
+    "narration": "The ledger records the approved order and its payment history. Mark it packed and upload a packing photo for advisory review. A human must confirm delivery before settlement becomes eligible, followed by a separate simulated release. No real Paytm authorization or money movement occurs.",
+    "caption": "Packed → human delivery confirmation → simulated release\nThe photo is advisory; a human controls fulfilment confirmation."
+  },
+  {
+    "id": "catalogue",
+    "title": "Keep the operating data useful",
+    "eyebrow": "PRODUCT CATALOGUE & DOCUMENTS",
+    "narration": "The catalogue supports editable prices, stock, costs, and minimum selling prices. Add or edit products, import a CSV, or upload a paper rate card. Sarvam assists extraction, but the merchant reviews and corrects entries before saving. Sensitive cost fields stay in the merchant workspace.",
+    "caption": "Edit stock and prices, import CSV, or review a rate card\nDocument extraction assists the merchant; review comes before saving."
+  },
+  {
+    "id": "operations",
+    "title": "The everyday operating tools",
+    "eyebrow": "IMPORT · EXPORT · PREFERENCES",
+    "narration": "Import known pseudonymous transactions from CSV and recalculate customer intelligence. Export the stored ledger for analysis, with repeated imports protected against duplication. In Settings, save the default assistant language so new conversations begin in the merchant's preferred language. Notifications link back to real activity.",
+    "caption": "Transaction CSV import/export + duplicate protection\nSaved language preferences make the next conversation easier."
+  },
+  {
+    "id": "architecture",
+    "title": "AI understanding. Deterministic execution.",
+    "eyebrow": "HOW IT IS BUILT",
+    "narration": "The interface uses Next.js and React, backed by FastAPI, PostgreSQL, and Redis. LangGraph orchestrates workflows. Sarvam handles language, speech, and documents. Python performs analytics, financial calculations, and policy enforcement. The prototype uses existing foundation models; it does not claim to have trained a new one.",
+    "caption": "Next.js · FastAPI · PostgreSQL · Redis · LangGraph · Sarvam\nAI interprets; deterministic services calculate, validate, and execute."
+  },
+  {
+    "id": "usp",
+    "title": "A copilot that closes the loop",
+    "eyebrow": "WHAT MAKES IT DIFFERENT",
+    "narration": "The differentiator is a connected loop: recognize an opportunity, prepare an eligible action, obtain approval, and measure results. Local-language voice lowers the interaction barrier. Customer intelligence and negotiation address growth and operations together. The mandate layer keeps merchant boundaries enforceable, beyond a language model's promises.",
+    "caption": "Insight → proposal → approval → action → feedback\nLocal-language access, operational agents, and enforceable merchant control."
+  },
+  {
+    "id": "business",
+    "title": "A proposed path to a merchant business",
+    "eyebrow": "BUSINESS MODEL · PROPOSED",
+    "narration": "A proposed business model offers basic insights, then a paid growth subscription for richer campaigns, multilingual assistance, and bulk-order workflows. Merchant consent and authorized integration would support distribution. Pricing and impact need pilot validation. Subscription billing and a commercial Paytm partnership are not implemented.",
+    "caption": "Proposed: basic insights + a paid merchant-growth subscription\nPricing, distribution partnerships, and impact require pilot validation."
+  },
+  {
+    "id": "closing",
+    "title": "Help merchants earn the next payment",
+    "eyebrow": "PEHCHAAN · पहचान",
+    "narration": "Pehchaan shows how payment intelligence can become a business partner: helping merchants recognize customers, prepare offers, negotiate eligible deals, and run their shop in a familiar language. More returning customers, better negotiated decisions, and smarter merchant operations are the outcomes we aim to validate next.",
+    "caption": "Pehchaan: the AI business partner for the next payment\nMore returning customers. Better negotiated decisions. Smarter operations."
+  }
+]
