@@ -1,3 +1,7 @@
+.runtime
+.vercel
+.git
+**/.runtime/**
 artifacts
 tmp
 .taste-skill
